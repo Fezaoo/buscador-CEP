@@ -11,7 +11,7 @@ function App() {
     if (input === '') {
       alert('Preencha algum cep!')
       return
-    }
+    } 
 
     try{
       const response = await api.get(`${input}/json`)
@@ -33,6 +33,7 @@ function App() {
           placeholder="Digite seu CEP..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => {if (e.key === "Enter") {handleSearch()}}}
         />
         <button className="buttonSearch" onClick={handleSearch}>
           <FiSearch size={25} color='#FFF' />
